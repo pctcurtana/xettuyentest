@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,53 +13,39 @@
         .card-footer {
             background-color: #fff;
         }
-
         th,
         td {
             white-space: nowrap;
-
         }
-
         .text-center {
             text-align: center;
-
         }
-
         .border-right {
             border-right: 1px solid rgba(0, 0, 0, 0.15)
         }
-
-
         table.dataTable>tbody>tr>th,
         table.dataTable>tbody>tr>td {
             padding: 0px 4px;
         }
-
         table.dataTable>thead>tr>th,
         table.dataTable>thead>tr>td {
             padding: 0px 4px;
         }
-
         table.dataTable>thead>tr>th:not(.sorting_disabled),
         table.dataTable>thead>tr>td:not(.sorting_disabled) {
             padding: 0px 4px;
         }
-
         div.dataTables_wrapper {
             /* width: 400px; */
             margin: 0 auto;
         }
-
-
         /* .equal-height {
             display: flex;
         }
-
         .equal-height .card {
             flex: 1;
         }
  */
-
         .test {
 
             border: 1px solid red;
@@ -69,12 +54,9 @@
         }
     </style>
 </head>
-
 <body class="sidebar-mini sidebar-collapse">
-
     <div class="wrapper">
         <!-- Preloader -->
-
         <!-- Navbar -->
         @include('user_24.admin24.include.navbar')
         <!-- /.navbar -->
@@ -107,11 +89,11 @@
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="" class="col-12" style="margin-top:5px;">Duyệt/Chưa duyệt:</label>                                                    
-                                                        <select id="trangthaiduyet" class="col-12">                                                          
-                                                            <option value="2">Trạng thái</option>
-                                                            <option value="1">Duyệt</option>
-                                                            <option value="0">Chưa duyệt</option>
-                                                        </select>                                                
+                                                    <select id="trangthaiduyet" class="col-12">                                                          
+                                                        <option value="2">Trạng thái</option>
+                                                        <option value="1">Duyệt</option>
+                                                        <option value="0">Chưa duyệt</option>
+                                                    </select>                                                
                                                 </div>
                                                 <div class="form-group row ">
                                                     <label for="" class="col-12"style="margin-top:5px;">Khoá:</label>                                                   
@@ -129,16 +111,16 @@
                                                     <label for="" class="col-12" style="margin-top:5px;">Họ và Tên:</label>
                                                     <input id="hoten" class="col-12" style="height: 28px;" type="text"></input>
                                                 </div>           
-                                                    <div class="col-8"></div>
-                                                    <div class="row">
-                                                        <div class="col-2"></div>
-                                                        <div class="col-5 " style="margin-top: 5px;">
-                                                            <button id="refresh" onclick="refresh()" class="btn btn-block btn-primary btn-xs"><i class="fa-solid fa-arrows-rotate"></i> Làm mới</button>
-                                                        </div>
-                                                        <div class="col-5"style="margin-top: 5px;">
-                                                            <button id="timkiem" onclick="timkiem()" class="btn btn-block btn-primary btn-xs"><i class="fa-solid fa-magnifying-glass" ></i> Tìm kiếm</button>
-                                                        </div> 
-                                                    </div>                                            
+                                                <div class="col-8"></div>
+                                                <div class="row">
+                                                    <div class="col-2"></div>
+                                                    <div class="col-5 " style="margin-top: 5px;">
+                                                        <button id="refresh" onclick="refresh()" class="btn btn-block btn-primary btn-xs"><i class="fa-solid fa-arrows-rotate"></i> Làm mới</button>
+                                                    </div>
+                                                    <div class="col-5"style="margin-top: 5px;">
+                                                        <button id="timkiem" onclick="timkiem()" class="btn btn-block btn-primary btn-xs"><i class="fa-solid fa-magnifying-glass" ></i> Tìm kiếm</button>
+                                                    </div> 
+                                                </div>                                            
                                             </div>                                          
                                         </div>
                                     </div>
@@ -184,37 +166,14 @@
         @include('user_24.admin24.include.footer')
     </div>
     @include('user_24.modalevent')
-    <script>
-//         $(document).ready(function() {
-//     // Khởi tạo Select2 cho tất cả các phần tử select có class 'select2'
-//     $('.select2').select2({
-//  // Đặt chiều rộng là 100% của container
-//         placeholder: 'Chọn một tùy chọn', // Placeholder text
-//         allowClear: true // Cho phép xóa lựa chọn
-//     });
-
-//     // Khởi tạo cụ thể cho một số select nếu cần
-//     $('#tcsv_khoahoc').select2({
-//         placeholder: 'Chọn khóa học'
-//     });
-
-//     $('#tcsv_nganh').select2({
-//         placeholder: 'Chọn ngành'
-//     });
-
-//     // Thêm các select khác nếu cần
-// });
-    </script>
 </body>
 {{-- <script src="/admin/admin24/js/quanlynhaphoc/tracuusinhvien.js"></script>
 <script src="/swiper/swiper.js"></script> --}}
 <script>
-
     function load_loaigiay(){
         $.ajax({
             url: '/admin24/loadloaigiay',
             type: 'GET',
-            // dataType: 'json',
             success: function (data1) {
                 $('#slb_loaigiay').select2({
                     data: data1
@@ -226,7 +185,6 @@
         $.ajax({
             url: '/admin24/loadkhoas',
             type: 'GET',
-            // dataType: 'json',
             success: function (data2) {
                 $('#slb_khoas').select2({
                     data: data2
@@ -326,7 +284,6 @@
                 className: 'dt-body-center'
             },
         ],
-
         "language": {
             "emptyTable": "Không tìm thấy thông tin sinh viên",
             "info": " _START_ / _END_ trên _TOTAL_ sinh vien",
@@ -373,7 +330,6 @@
             mssv: $('#mssv').val(),
             ngaydangky: $('#ngaydangky').val(),
             trangthaiduyet: $('#trangthaiduyet').val()
-
             };
         $('#modal_event').show();
         setTimeout(() => {  $('#modal_event').hide() },1000);
@@ -387,8 +343,7 @@
                 table.clear(); // xóa dữ liệu c��       
                 table.rows.add(data).draw();                           
                 // table.ajax.reload(null, false); // reload dữ liệu mà không reset lại trang
-                table.draw('page');
-                   
+                table.draw('page');                  
             },
             error: function(xhr, status, error) {
                 toastr.error('Hệ thống đang bảo trì');

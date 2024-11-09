@@ -4,7 +4,6 @@ $(document).ready(function () {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-
 });
 var table = $('#duyetgxn_tb_danhsach').DataTable({
     ajax: {
@@ -14,8 +13,7 @@ var table = $('#duyetgxn_tb_danhsach').DataTable({
     columns: [
         {
             title: "STT",
-            data: 'stt',
-            
+            data: 'stt',          
         },
         {
             title: "Mã giấy",
@@ -56,14 +54,7 @@ var table = $('#duyetgxn_tb_danhsach').DataTable({
                 }
                 return trangthaicd + '&nbsp;&nbsp;&nbsp;'+ xemtruoc + '&nbsp;&nbsp;&nbsp;'+ xoatt;
             },
-        },
-        // {
-        //     title: "Xoá",
-        //     data: null,
-        //     render: function(data,type,row){                
-        //         return ;                
-        //     },
-        // },       
+        },       
     ],
     columnDefs: [
         {
@@ -93,12 +84,7 @@ var table = $('#duyetgxn_tb_danhsach').DataTable({
         {
             targets: 6,
             className: 'dt-body-center'
-        },
-        // {
-        //     targets: 7,
-        //     className: 'dt-body-center'
-        // },
-        
+        },       
     ],
     "language": {
         "emptyTable": "Không tìm thấy thông tin",
@@ -137,7 +123,6 @@ function duyetgxn_tb_duyet(id){
                 id: id,
                 check: check
             },
-            // dataType: 'json',
             success: function (data) {
                 if(data == 1){
                     toastr.success('Cập nhật thành công')
@@ -145,18 +130,17 @@ function duyetgxn_tb_duyet(id){
                         $('#duyetgxn_tb_trangthai'+id).html('<i class="fa-regular fa-circle-check"></i>&nbsp;&nbsp;&nbsp;Đã duyệt')
                         $('#duyetgxn_tb_trangthai'+id).removeClass('badge-warning')
                         $('#duyetgxn_tb_trangthai'+id).addClass('badge-primary')
-                    }else{
+                    } else {
                         $('#duyetgxn_tb_trangthai'+id).html('<i class="fa-solid fa-spinner"></i>&nbsp;&nbsp;&nbsp;Chưa duyệt')
                         $('#duyetgxn_tb_trangthai'+id).addClass('badge-warning')
                         $('#duyetgxn_tb_trangthai'+id).removeClass('badge-primary')
                     }
-                }else{
+                } else {
                     toastr.error('Hệ thống đang bảo trì')
                 }
                 $('#duyetgxn_tb_duyet'+id).attr('disabled',false) // Mở nút khi xử lý xong
                 $('#modal_event').hide(); // Mở màn hình khi xử lý xong
-            }
-           
+            }          
         })
     }, 500);  
 }
@@ -198,8 +182,7 @@ function xoa_thongtin(id) {
                 toastr.success('Xóa thành công');
                 table.row($('#xoatt_gxn' + id).closest('tr')).remove();
                 table.ajax.reload(null, false); // reload dữ liệu mà không reset lại trang
-                // table.draw('page');
-                                     
+                // table.draw('page');                                   
             },
             error: function(xhr, status, error) {
                 toastr.error('Hệ thống đang bảo trì');
